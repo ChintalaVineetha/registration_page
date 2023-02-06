@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+.line1,.line2{
+    display:flex;
+    justify-content: space-around;
+    padding:10px;
+}
+.genderalign{
+dispaly:grid;
+padding:10px;
+}
+.h{
+display:flex;
+padding:10px;
+}
+.line4{
+dispaly:grid;
+padding:10px;
+}
+#firstname,#phonenumber,#lastname,#mailid,#hobby,#gender,#clg,#year,#univer,#perc{
+    background-color:#fff5da;
+    border-radius:5px;
+    width:150px;
+    height:25px;
+    text-align:center;
+    padding:2px;
+}
+.genderhobby{
+display:contents;
+}
+#qual{
+font-size:15px;
+    justify-content: space-around;
+}
+.line5,.line6{
+display:flex;
+justify-content: space-around;
+}
+#submitbutton{
+background-color:#87ceeb ;
+border-radius:15px;
+text-align:center;
+margin: 0 auto;
+display: block;
+}
+#basic,#educational{
+border:1px solid #99dbbc;
+border-radius:5px;
+background-color: #e7fef3;
+}
+.output{
+border:1px black solid;
+width:100px;
+height:100px;
+}
+.sideheading{
+color:#eceded;
+font-weight:bold;
+}
+#total{
+background-color:#fff5da;
+padding:20px;
+border:black solid 1px;
+border-radius:3px;
+}
+
+
+
+    </style>
+</head>
+<body>
+<div id="total">
+    {% block content%}
+    <br>
+    <br>
+    <form method="post" action="Display">{% csrf_token %}
+        <div id="basic">
+            <h2>&nbsp;&nbsp;&nbsp;Basic Details:</h2>
+            <div class="line1">
+                <label id="firstname">Firstname:</label>
+                <input type="text" id="fname" name="FirstName" required placeholder="Enter Your Firstname"
+                       autocomplete="off">
+                <label id="phonenumber">Ph.no:</label>
+                <input type="number" id="number" name="MobileNumber" maxlength="11" placeholder="Mobile Number">
+            </div>
+            <br>
+            <div class="line2">
+                <label id="lastname">Lastname:</label>
+                <input type="text" id="lname" name="LastName" required placeholder="Enter Your Lastname">
+                <label id="mailid">Mailid:</label>
+                <input type="email" id="mail" name="MailId" required placeholder="a@gmail.com">
+
+            </div>
+            <br>
+            <div class="line2">
+                <div class="genderhobby">
+                    <label id="gender">Gender:</label>
+                    <div class="genderalign">
+                        <div id="malealign">
+                            <input type="radio" name="Gender" id="gmale" value="Male">
+                            <label for="gmale">Male</label>
+                        </div>
+                        <div id="femalealign">
+                            <input type="radio" name="Gender" id="gfemale" value="Female">
+                            <label for="gfemale">Female</label>
+                        </div>
+                    </div>
+                    <label id="hobby">Hobbies:</label>
+                    <div class="line4">
+                        <div class="h">
+                            <input type="checkbox" name="game" id="cri" value="Cricket">
+                            <label for="cri">Cricket</label>
+                        </div>
+                        <div class="h">
+                            <input type="checkbox" name="game" id="hok" value="Hockey">
+                            <label for="hok">Hockey</label>
+                        </div>
+                        <div class="h">
+                            <input type="checkbox" name="game" id="online" value="Online Games">
+                            <label for="online">Online games</label>
+                        </div>
+                        <div class="h">
+                            <input type="checkbox" name="game" id="tv" value="Tv">
+                            <label for="tv">TV</label>
+                        </div>
+                        <div class="h">
+                            <input type="checkbox" name="game" id="Browsing" value="Browsing">
+                            <label for="Browsing">Browsing</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div id="educational">
+            <h2>&nbsp;&nbsp;&nbsp;Educational Details:</h2>
+            <div class="line5">
+                <label id="clg">College Name:</label>
+                <input type="text" id="clgname" name="CollegeName" placeholder="College Name">
+                <label id="year">Passed out:</label>
+                <input type="number" id="passedout" name="Passedoutyear" placeholder="XXXX">
+            </div>
+            <br>
+            <br>
+            <div class="line6">
+                <label id="univer">University:</label>
+                <input type="text" id="univ" name="University" placeholder="University Name">
+                <label id="perc">Percentage:</label>
+                <input type="number" id="per" name="Percentage" placeholder="Percentage">
+            </div>
+            <br><br>
+
+        </div>
+        <br><br>
+
+        <input type="submit" value="Submit" id="submitbutton">
+        <br>
+    </form>
+</div>
+<br>
+
+{% endblock %}
+{% for i in messages %}
+{{message}}
+{% endfor %}
+</body>
+</html>

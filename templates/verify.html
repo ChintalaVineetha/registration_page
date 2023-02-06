@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify</title>
+</head>
+<body>
+<form action="view" method="post">{% csrf_token %}
+    <label for="user">Select</label>
+    <select name="user" id="user">
+        <option value="id">id</option>
+        <option value="firstname">firstname</option>
+    </select>
+    {% if True%}
+    <input name="initial" type="text" width="50px" height="20px">
+
+    {% else %}
+    <input name="initial" type="number" width="50px" height="20px">
+
+    {% endif%}
+    <input type="submit" value="Submit" id="submitbutton">
+</form>
+<div> {% for i in list3 %}
+    <h1>{{i.fname}}'s details are:</h1>
+    <h1 class="ques">FirstName:</h1>
+    <h2>{{i.fname}}</h2>
+    <h1 class="ques">Lastname:</h1>
+    <h2>{{i.lname}}</h2>
+    <h1 class="ques">Contact Number:</h1>
+    <h2>{{i.number}}</h2>
+    <h1 class="ques">MailId:</h1>
+    <h2>{{i.mail}}</h2>
+    <h1 class="ques">CollegeName:</h1>
+    <h2>{{i.clgname}}</h2>
+    <h1 class="ques">University:</h1>
+    <h2>{{i.univ}}</h2>
+    <h1 class="ques">Percentage:</h1>
+    <h2>{{i.percent}}</h2>
+    <h1 class="ques">Passedout Year:</h1>
+    <h2>{{i.passedout}}</h2>
+    <h1 class="ques">Gender:</h1>
+    <h2>{{i.radiooption}}</h2>
+    <h1 class="ques">Favorite Hobbies:</h1>
+    <h2>{{i.hobbies}}</h2>
+    {% endfor %}
+    <a id="back" href="Register">Register now!!!</a><br>
+</div>
+</body>
+</html>

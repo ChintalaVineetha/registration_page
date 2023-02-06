@@ -1,0 +1,36 @@
+
+{% block content %}
+<title>Recheck</title>
+<style>
+    .ques{
+    color:#8080e0;
+
+    }
+    .heading{
+    color:#ab6263;
+    }
+    #back{
+    font-weight:bolder;
+    font:100px;
+    }
+</style>
+<h1 class="heading">Given Details:</h1>
+    {% for i in posts %}
+    <h1>{{i.firstname1}}'s Details successfully saved..</h1>
+    <h1 class="ques">FirstName:</h1><h2>{{i.firstname1}}</h2>
+    <h1 class="ques">Lastname:</h1><h2>{{i.lastname1}}</h2>
+    <h1 class="ques">Contact Number:</h1><h2>{{i.number1}}</h2>
+    <h1 class="ques">MailId:</h1><h2>{{i.mail1}}</h2>
+    <h1 class="ques">CollegeName:</h1><h2>{{i.clgname1}}</h2>
+    <h1 class="ques">University:</h1><h2>{{i.univ1}}</h2>
+    <h1 class="ques">Percentage:</h1><h2>{{i.percent1}}</h2>
+    <h1 class="ques">Passedout Year:</h1><h2>{{i.passedout1}}</h2>
+    <h1 class="ques">Gender:</h1>
+    <h2>{{i.radiooption1}}</h2>
+    <h1 class="ques">Favorite Hobbies:</h1>
+    <h2>{{i.hobbies}}</h2>
+    {% endfor %}
+    <a id="back" href="Register" >Edit Your Details</a><br>
+    <a id="check" href="verify" >Check details with your firstname</a>
+
+{% endblock content %}
